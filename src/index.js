@@ -8,6 +8,7 @@ import MainPage from './pages/Home/MainPage';
 import MoviesPage from './pages/Movies/MoviesPage';
 import MovieDetail from './pages/MovieDetail/MovieDetail';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { KeywordContextProvider } from './context/keyWordContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
         path: '/movies',
         element: <MoviesPage />,
       },
+
       {
         path: '/movie/:movieId',
         element: <MovieDetail />,
@@ -36,9 +38,11 @@ const router = createBrowserRouter([
 const queryClient = new QueryClient();
 
 root.render(
-  <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
-  </QueryClientProvider>
+  <KeywordContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </QueryClientProvider>
+  </KeywordContextProvider>
 );

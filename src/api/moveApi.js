@@ -3,13 +3,13 @@ import axios from 'axios';
 const API_KEY = process.env.REACT_APP_API_KEY;
 export const apiBase = axios.create({
   baseURL: 'https://api.themoviedb.org/3/',
+  params: { key: process.env.REACT_APP_YOUTUBE_API_KEY },
   headers: {
     Accept: 'application/json',
     Authorization: `Bearer ${API_KEY}`,
   },
 });
 
-//////////////////////////////////
 axios.interceptors.request.use(
   function (config) {
     // 요청이 전달되기 전에 작업 수행

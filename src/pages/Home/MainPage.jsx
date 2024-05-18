@@ -1,13 +1,18 @@
 import React from 'react';
 import HomeBanner from './components/HomeBanner';
-
-//배너=> 인기영화의 첫번째 아이템 img url
-//, 인기영화, 영화순위, 예정작
+import PopularMoviesSlides from '../../components/popularMoives/PopularMoviesSlides';
+import NowPlayingMovies from '../../components/nowPlayingMovies/NowPlayingMovies';
+import UpComing from '../../components/upComing/UpComing';
+import TopRated from '../../components/topRated/TopRated';
 
 export default function MainPage() {
   return (
     <>
       <HomeBanner />
+      <PopularMoviesSlides />
+      <NowPlayingMovies />
+      <TopRated />
+      <UpComing />
     </>
   );
 }
